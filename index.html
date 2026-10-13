@@ -4,379 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
-<title>Как начать Shorts и Reels</title>
-<meta name="description" content="Пошаговый гайд для новичков: как начать снимать короткие вертикальные видео для YouTube Shorts, Instagram Reels и TikTok.">
+<meta name="theme-color" content="#07070a">
+<title>Shorts с нуля</title>
+<meta name="description" content="Пошаговый гайд и бесплатные инструменты для новичков: как начать снимать Shorts и Reels и как на них зарабатывать.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='24' y='4' rx='7' fill='%23ff2e3b'/%3E%3Cpath d='M13 11l8 5-8 5z' fill='%23fff'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #07070a;
-    --text: #f5f3f0;
-    --muted: #a09ca6;
-    --dim: #6c6872;
-    --glass: rgba(255,255,255,.045);
-    --glass-strong: rgba(255,255,255,.08);
-    --line: rgba(255,255,255,.09);
-    --red: #ff2e3b;
-    --pink: #ff3d8b;
-    --orange: #ff8a3d;
-    --ok: #3ee08f;
-    --grad: linear-gradient(120deg, #ff2e3b 0%, #ff3d8b 50%, #ff8a3d 100%);
-    --radius: 22px;
-  }
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: Manrope, system-ui, -apple-system, sans-serif;
-    font-size: 17px;
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-  ::selection { background: var(--red); color: #fff; }
-  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; position: relative; }
-  .narrow { max-width: 820px; }
-
-  /* ---------- ФОН ---------- */
-  .bg { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
-  .blob { position: absolute; border-radius: 50%; filter: blur(90px); opacity: .55; }
-  .b1 { width: 620px; height: 620px; background: #ff1f2d; top: -220px; left: -160px; animation: drift1 22s ease-in-out infinite alternate; }
-  .b2 { width: 520px; height: 520px; background: #c4166a; top: 30%; right: -200px; opacity: .4; animation: drift2 26s ease-in-out infinite alternate; }
-  .b3 { width: 460px; height: 460px; background: #ff7a1f; bottom: -200px; left: 25%; opacity: .25; animation: drift1 30s ease-in-out infinite alternate-reverse; }
-  @keyframes drift1 { to { transform: translate(120px, 80px) scale(1.15); } }
-  @keyframes drift2 { to { transform: translate(-140px, -60px) scale(.9); } }
-  .grid {
-    position: absolute; inset: 0;
-    background-image:
-      linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
-    background-size: 64px 64px;
-    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 75%);
-  }
-  .play {
-    position: absolute; width: 56px; height: 40px; border-radius: 12px;
-    background: rgba(255,46,59,.12); border: 1px solid rgba(255,46,59,.25);
-    display: grid; place-items: center;
-    animation: float 14s ease-in-out infinite;
-  }
-  .play::after {
-    content: ""; width: 0; height: 0; margin-left: 4px;
-    border-left: 13px solid rgba(255,90,100,.7);
-    border-top: 8px solid transparent; border-bottom: 8px solid transparent;
-  }
-  @keyframes float { 0%,100% { transform: translateY(0) rotate(var(--r,0deg)); } 50% { transform: translateY(-40px) rotate(calc(var(--r,0deg) + 8deg)); } }
-  .noise {
-    position: absolute; inset: 0; opacity: .06; mix-blend-mode: overlay;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-
-  /* ---------- НАВИГАЦИЯ / ПРОГРЕСС ---------- */
-  nav {
-    position: sticky; top: 12px; z-index: 50;
-    margin: 12px auto 0; max-width: 1120px; padding: 0 16px;
-  }
-  .navbar {
-    display: flex; align-items: center; gap: 14px;
-    padding: 10px 14px 10px 16px; border-radius: 999px;
-    background: rgba(14,14,18,.6); border: 1px solid var(--line);
-    backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%);
-  }
-  .logo { display: flex; align-items: center; gap: 10px; font-family: Unbounded, sans-serif; font-weight: 700; font-size: 15px; white-space: nowrap; }
-  .logo i {
-    width: 30px; height: 22px; border-radius: 7px; background: var(--grad);
-    display: grid; place-items: center; box-shadow: 0 0 20px rgba(255,46,59,.6);
-  }
-  .logo i::after { content: ""; margin-left: 2px; border-left: 8px solid #fff; border-top: 5px solid transparent; border-bottom: 5px solid transparent; }
-  .nprog { flex: 1; display: flex; align-items: center; gap: 12px; justify-content: flex-end; font-size: 13px; color: var(--muted); }
-  .nbar { width: min(220px, 30vw); height: 6px; border-radius: 999px; background: rgba(255,255,255,.08); overflow: hidden; }
-  .nbar span { display: block; height: 100%; width: 0; background: var(--grad); border-radius: 999px; transition: width .6s cubic-bezier(.2,.8,.2,1); box-shadow: 0 0 12px rgba(255,46,59,.8); }
-  .nprog b { color: var(--text); font-variant-numeric: tabular-nums; font-weight: 700; }
-
-  /* ---------- HERO ---------- */
-  .hero { display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: center; padding: 72px 16px 88px; }
-  .pill {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 6px 14px 6px 8px; border-radius: 999px;
-    background: var(--glass); border: 1px solid var(--line);
-    font-size: 13px; font-weight: 600; color: var(--muted);
-  }
-  .pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 4px rgba(255,46,59,.2); animation: pulse 2s infinite; }
-  @keyframes pulse { 50% { box-shadow: 0 0 0 8px rgba(255,46,59,0); } }
-  h1 {
-    font-family: Unbounded, sans-serif; font-weight: 800;
-    font-size: clamp(36px, 6.4vw, 72px); line-height: 1.02; letter-spacing: -.03em;
-    margin: 22px 0 22px;
-  }
-  .gt { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .lead { font-size: 19px; color: var(--muted); max-width: 540px; margin: 0 0 32px; }
-  .cta { display: flex; flex-wrap: wrap; gap: 12px; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 15px 26px; border-radius: 999px; font-weight: 700; font-size: 16px;
-    text-decoration: none; color: #fff; border: 0; cursor: pointer; font-family: inherit;
-    transition: transform .2s, box-shadow .2s;
-  }
-  .btn-main { background: var(--grad); box-shadow: 0 10px 40px -8px rgba(255,46,59,.7); }
-  .btn-main:hover { transform: translateY(-2px); box-shadow: 0 16px 50px -8px rgba(255,46,59,.9); }
-  .btn-ghost { background: var(--glass); border: 1px solid var(--line); }
-  .btn-ghost:hover { background: var(--glass-strong); }
-  .platforms { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 36px; }
-  .platforms span {
-    font-size: 13px; font-weight: 600; color: var(--muted);
-    padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,.02);
-  }
-
-  /* мокап телефона */
-  .phone-wrap { position: relative; display: grid; place-items: center; }
-  .phone {
-    position: relative; width: 280px; aspect-ratio: 9/18.5; border-radius: 42px;
-    padding: 10px; background: linear-gradient(160deg, #2a2a30, #0f0f12);
-    box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 40px 120px -20px rgba(255,46,59,.55), inset 0 0 0 2px rgba(255,255,255,.04);
-    transform: rotate(4deg);
-    animation: bob 6s ease-in-out infinite;
-  }
-  @keyframes bob { 50% { transform: rotate(4deg) translateY(-14px); } }
-  .screen {
-    position: relative; width: 100%; height: 100%; border-radius: 33px; overflow: hidden;
-    background:
-      radial-gradient(circle at 30% 25%, rgba(255,138,61,.9), transparent 45%),
-      radial-gradient(circle at 75% 70%, rgba(255,61,139,.85), transparent 50%),
-      linear-gradient(170deg, #ff2e3b, #5a0b2e 70%, #120610);
-  }
-  .screen::before {
-    content: ""; position: absolute; top: 10px; left: 50%; transform: translateX(-50%);
-    width: 84px; height: 24px; border-radius: 999px; background: #000; z-index: 3;
-  }
-  .screen .bigplay {
-    position: absolute; top: 42%; left: 50%; transform: translate(-50%,-50%);
-    width: 72px; height: 72px; border-radius: 50%;
-    background: rgba(255,255,255,.18); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,.35);
-    display: grid; place-items: center;
-  }
-  .screen .bigplay::after { content: ""; margin-left: 6px; border-left: 22px solid #fff; border-top: 14px solid transparent; border-bottom: 14px solid transparent; }
-  .side { position: absolute; right: 12px; bottom: 96px; display: flex; flex-direction: column; gap: 16px; align-items: center; }
-  .side div { display: flex; flex-direction: column; align-items: center; font-size: 11px; font-weight: 700; }
-  .side em {
-    font-style: normal; width: 42px; height: 42px; border-radius: 50%;
-    background: rgba(0,0,0,.3); backdrop-filter: blur(6px);
-    display: grid; place-items: center; font-size: 19px; margin-bottom: 3px;
-  }
-  .side .heart em { animation: beat 1.6s ease-in-out infinite; }
-  @keyframes beat { 10%,30% { transform: scale(1.18); } 20% { transform: scale(.95); } }
-  .caption { position: absolute; left: 14px; right: 70px; bottom: 26px; font-size: 12px; line-height: 1.4; }
-  .caption b { display: flex; align-items: center; gap: 6px; font-size: 13px; margin-bottom: 4px; }
-  .caption b::before { content: ""; width: 22px; height: 22px; border-radius: 50%; background: #fff; opacity: .9; }
-  .vbar { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: rgba(255,255,255,.25); }
-  .vbar span { display: block; height: 100%; background: #fff; animation: vp 8s linear infinite; }
-  @keyframes vp { from { width: 0; } to { width: 100%; } }
-  .chip {
-    position: absolute; z-index: 2;
-    display: flex; align-items: center; gap: 10px;
-    padding: 10px 16px; border-radius: 16px;
-    background: rgba(18,18,22,.75); border: 1px solid var(--line);
-    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-    font-size: 13px; font-weight: 600; white-space: nowrap;
-    box-shadow: 0 20px 40px -10px rgba(0,0,0,.6);
-    animation: float 9s ease-in-out infinite;
-  }
-  .chip small { display: block; color: var(--muted); font-weight: 500; font-size: 11px; }
-  .chip .ic { width: 32px; height: 32px; border-radius: 10px; display: grid; place-items: center; font-size: 16px; background: var(--glass-strong); }
-  .c1 { top: 12%; left: -6%; }
-  .c2 { bottom: 16%; right: -8%; animation-delay: -4s; }
-  .c3 { bottom: 4%; left: 2%; animation-delay: -2s; }
-  .up { color: var(--ok); }
-
-  /* ---------- СЕКЦИИ ---------- */
-  section.block { padding: 40px 0 72px; }
-  .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--red); margin: 0 0 12px; }
-  h2 { font-family: Unbounded, sans-serif; font-weight: 700; font-size: clamp(28px, 4.2vw, 44px); line-height: 1.1; letter-spacing: -.02em; margin: 0 0 14px; }
-  .sub { color: var(--muted); font-size: 18px; margin: 0 0 44px; max-width: 600px; }
-
-  /* таймлайн шагов */
-  .timeline { position: relative; padding-left: 0; }
-  .timeline::before {
-    content: ""; position: absolute; left: 31px; top: 20px; bottom: 20px; width: 2px;
-    background: linear-gradient(var(--red), var(--pink) 50%, rgba(255,138,61,.15));
-    opacity: .35;
-  }
-  .rail-fill {
-    position: absolute; left: 31px; top: 20px; width: 2px; height: 0;
-    background: var(--grad); box-shadow: 0 0 16px var(--red);
-    transition: height .2s linear;
-  }
-  .step { position: relative; padding-left: 92px; margin-bottom: 22px; }
-  .node {
-    position: absolute; left: 0; top: 18px;
-    width: 64px; height: 64px; border-radius: 20px;
-    display: grid; place-items: center;
-    background: #111116; border: 1px solid var(--line);
-    font-family: Unbounded, sans-serif; font-weight: 800; font-size: 20px;
-    transition: all .4s;
-    z-index: 1;
-  }
-  .node span { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .step.done .node { background: var(--ok); border-color: var(--ok); box-shadow: 0 0 30px -4px var(--ok); }
-  .step.done .node span { color: #062b17; background: none; -webkit-background-clip: initial; background-clip: initial; }
-  .card {
-    position: relative; overflow: hidden;
-    padding: 26px 28px; border-radius: var(--radius);
-    background: var(--glass); border: 1px solid var(--line);
-    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-    transition: transform .35s cubic-bezier(.2,.8,.2,1), border-color .35s, background .35s;
-  }
-  .card::before {
-    content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
-    background: radial-gradient(400px circle at var(--mx,50%) var(--my,0%), rgba(255,61,90,.55), transparent 40%);
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor; mask-composite: exclude;
-    opacity: 0; transition: opacity .3s; pointer-events: none;
-  }
-  .card:hover { transform: translateY(-3px); background: rgba(255,255,255,.06); }
-  .card:hover::before { opacity: 1; }
-  .step.done .card { border-color: rgba(62,224,143,.35); background: rgba(62,224,143,.05); }
-  .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
-  .step h3 { font-family: Unbounded, sans-serif; font-weight: 700; font-size: 21px; letter-spacing: -.01em; margin: 2px 0 10px; display: flex; align-items: center; gap: 12px; }
-  .emo { font-size: 24px; }
-  .step p { margin: 0 0 12px; color: #d6d2da; }
-  .step ul { list-style: none; margin: 0 0 6px; padding: 0; display: grid; gap: 8px; }
-  .step li { position: relative; padding-left: 26px; color: #d6d2da; }
-  .step li::before {
-    content: ""; position: absolute; left: 4px; top: 10px; width: 8px; height: 8px; border-radius: 3px;
-    background: var(--grad); transform: rotate(45deg);
-  }
-  .step li b, .step p b { color: var(--text); }
-  .tip {
-    display: flex; gap: 12px; align-items: flex-start;
-    margin: 16px 0 0; padding: 14px 16px; border-radius: 14px;
-    background: linear-gradient(120deg, rgba(255,46,59,.12), rgba(255,138,61,.06));
-    border: 1px solid rgba(255,46,59,.2);
-    font-size: 15px; color: #f0dcdc;
-  }
-  .tip::before { content: "💡"; font-size: 18px; line-height: 1.4; }
-  .check {
-    flex-shrink: 0;
-    display: inline-flex; align-items: center; gap: 8px;
-    font: inherit; font-size: 14px; font-weight: 700; color: var(--text);
-    padding: 9px 16px; border-radius: 999px; cursor: pointer;
-    background: rgba(255,255,255,.05); border: 1px solid var(--line);
-    transition: all .25s;
-  }
-  .check i { width: 18px; height: 18px; border-radius: 6px; border: 2px solid var(--dim); display: grid; place-items: center; font-style: normal; font-size: 12px; transition: all .25s; }
-  .check:hover { border-color: rgba(62,224,143,.6); }
-  .step.done .check { background: rgba(62,224,143,.14); border-color: rgba(62,224,143,.5); color: var(--ok); }
-  .step.done .check i { background: var(--ok); border-color: var(--ok); color: #062b17; }
-  .step.done .check i::after { content: "✓"; font-weight: 800; }
-
-  /* сценарий */
-  .script { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 16px 0 4px; }
-  .scene { padding: 16px; border-radius: 16px; background: rgba(0,0,0,.25); border: 1px solid var(--line); }
-  .scene .t { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 9px; border-radius: 999px; background: var(--grad); color: #fff; margin-bottom: 10px; }
-  .scene b { display: block; margin-bottom: 4px; }
-  .scene span { font-size: 14px; color: var(--muted); }
-
-  /* bento */
-  .bento { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
-  .bento .card { padding: 24px; }
-  .bento .card:nth-child(1) { grid-column: span 3; grid-row: span 2; }
-  .bento .card:nth-child(2), .bento .card:nth-child(3) { grid-column: span 3; }
-  .bento .card:nth-child(n+4) { grid-column: span 2; }
-  .big-emo { font-size: 38px; display: block; margin-bottom: 14px; filter: drop-shadow(0 8px 20px rgba(255,46,59,.4)); }
-  .bento h4, .mist h4 { font-family: Unbounded, sans-serif; font-weight: 700; font-size: 17px; margin: 0 0 8px; letter-spacing: -.01em; }
-  .bento p, .mist p { margin: 0; font-size: 15px; color: var(--muted); }
-  .bento .card:nth-child(1) { background: linear-gradient(150deg, rgba(255,46,59,.22), rgba(255,61,139,.06) 60%, transparent); }
-  .bento .card:nth-child(1) h4 { font-size: 26px; margin-bottom: 12px; }
-  .bento .card:nth-child(1) p { font-size: 16px; max-width: 360px; }
-  .mini-feed { display: flex; gap: 10px; margin-top: 24px; }
-  .mini-feed div {
-    flex: 1; aspect-ratio: 9/14; border-radius: 14px; position: relative; overflow: hidden;
-    background: linear-gradient(170deg, rgba(255,138,61,.6), rgba(255,46,59,.5), rgba(90,11,46,.8));
-    border: 1px solid rgba(255,255,255,.12);
-  }
-  .mini-feed div:nth-child(2) { background: linear-gradient(170deg, rgba(255,61,139,.6), rgba(120,20,80,.7)); }
-  .mini-feed div:nth-child(3) { background: linear-gradient(170deg, rgba(255,46,59,.7), rgba(40,6,20,.9)); }
-  .mini-feed div::after {
-    content: attr(data-v); position: absolute; left: 8px; bottom: 8px;
-    font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 6px; background: rgba(0,0,0,.45);
-  }
-
-  .mist { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-  .mist .x { display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 12px; background: rgba(255,46,59,.14); color: var(--red); font-weight: 800; margin-bottom: 14px; border: 1px solid rgba(255,46,59,.3); }
-
-  /* FAQ */
-  .faq { display: grid; gap: 10px; }
-  details {
-    border-radius: 18px; background: var(--glass); border: 1px solid var(--line);
-    transition: background .3s, border-color .3s;
-  }
-  details[open] { background: rgba(255,255,255,.06); border-color: rgba(255,46,59,.3); }
-  summary {
-    list-style: none; cursor: pointer; padding: 20px 24px;
-    display: flex; justify-content: space-between; align-items: center; gap: 16px;
-    font-weight: 700; font-size: 17px;
-  }
-  summary::-webkit-details-marker { display: none; }
-  summary::after {
-    content: "+"; flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%;
-    display: grid; place-items: center; font-size: 20px; font-weight: 500;
-    background: rgba(255,255,255,.06); transition: transform .3s, background .3s;
-  }
-  details[open] summary::after { transform: rotate(45deg); background: var(--red); }
-  details p { margin: 0; padding: 0 24px 22px; color: var(--muted); }
-
-  /* финал */
-  .final {
-    text-align: center; padding: 64px 24px; border-radius: 32px; position: relative; overflow: hidden;
-    background: radial-gradient(ellipse at 50% 0%, rgba(255,46,59,.35), transparent 65%), var(--glass);
-    border: 1px solid var(--line);
-  }
-  .final h2 { margin-bottom: 12px; }
-  .final p { color: var(--muted); margin: 0 auto 28px; max-width: 480px; }
-  .ring { width: 120px; height: 120px; margin: 0 auto 24px; position: relative; }
-  .ring svg { transform: rotate(-90deg); }
-  .ring b { position: absolute; inset: 0; display: grid; place-items: center; font-family: Unbounded, sans-serif; font-size: 26px; }
-
-  footer { padding: 40px 0 56px; color: var(--dim); font-size: 14px; text-align: center; }
-  .reset { font: inherit; color: var(--muted); background: none; border: 0; text-decoration: underline; cursor: pointer; padding: 0; }
-
-  /* появление при скролле */
-  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s cubic-bezier(.2,.8,.2,1), transform .8s cubic-bezier(.2,.8,.2,1); }
-  .reveal.in { opacity: 1; transform: none; }
-
-  @media (max-width: 960px) {
-    .hero { grid-template-columns: minmax(0,1fr); padding: 48px 16px 64px; gap: 56px; }
-    .hero > * { min-width: 0; }
-    .mist { grid-template-columns: 1fr 1fr; }
-    .bento { grid-template-columns: 1fr 1fr; }
-    .bento .card:nth-child(n) { grid-column: span 1; grid-row: auto; }
-    .bento .card:nth-child(1) { grid-column: span 2; }
-  }
-  @media (max-width: 600px) {
-    body { font-size: 16px; }
-    .logo span { display: none; }
-    .timeline::before, .rail-fill { display: none; }
-    .step { padding-left: 0; padding-top: 0; }
-    .node { position: relative; top: 0; width: 44px; height: 44px; border-radius: 14px; font-size: 15px; margin-bottom: 12px; }
-    .card { padding: 20px; }
-    .card-top { flex-direction: column; gap: 4px; }
-    .script { grid-template-columns: 1fr; }
-    .bento, .mist { grid-template-columns: 1fr; }
-    .bento .card:nth-child(1) { grid-column: span 1; }
-    h1 { font-size: 34px; }
-    .lead { font-size: 17px; }
-    .phone { width: 230px; }
-    .chip { padding: 8px 12px; font-size: 12px; }
-    .c1 { left: 0; top: 4%; } .c2 { right: 0; bottom: 10%; } .c3 { display: none; }
-    summary { padding: 18px 18px; font-size: 16px; }
-    details p { padding: 0 18px 18px; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { animation: none !important; transition: none !important; }
-    .reveal { opacity: 1; transform: none; }
-  }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -384,35 +19,44 @@
   <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
   <div class="grid"></div>
   <div class="play" style="top:18%;left:8%;--r:-12deg"></div>
-  <div class="play" style="top:62%;left:4%;--r:10deg;animation-delay:-5s;transform:scale(.8)"></div>
+  <div class="play" style="top:62%;left:4%;--r:10deg;animation-delay:-5s"></div>
   <div class="play" style="top:34%;right:6%;--r:14deg;animation-delay:-3s"></div>
   <div class="play" style="top:82%;right:14%;--r:-8deg;animation-delay:-8s"></div>
   <div class="play" style="top:8%;right:30%;--r:6deg;animation-delay:-10s;opacity:.6"></div>
   <div class="noise"></div>
 </div>
+<canvas id="confetti"></canvas>
 
 <nav>
   <div class="navbar">
-    <div class="logo"><i></i><span>Shorts&nbsp;с&nbsp;нуля</span></div>
+    <a class="logo" href="#top" style="color:inherit;text-decoration:none"><i></i><span>Shorts&nbsp;с&nbsp;нуля</span></a>
+    <div class="navlinks">
+      <a href="#steps">План</a>
+      <a href="#tools">Инструменты</a>
+      <a href="#money">Заработок</a>
+      <a href="#challenge">Челлендж</a>
+      <a href="#glossary">Словарь</a>
+      <a href="#faq">FAQ</a>
+    </div>
     <div class="nprog">
-      <span>Твой прогресс</span>
+      <span>Прогресс</span>
       <div class="nbar"><span id="nbar"></span></div>
       <b id="count">0/10</b>
     </div>
   </div>
 </nav>
 
-<header class="wrap hero">
+<header class="wrap hero" id="top">
   <div>
-    <span class="pill"><span class="dot"></span>Гайд 2026 · для полных новичков</span>
+    <span class="pill"><span class="dot"></span>Гайд 2026 · гайд + инструменты + заработок</span>
     <h1>Сними свой первый <span class="gt">Shorts</span> за&nbsp;неделю</h1>
-    <p class="lead">10 простых шагов от «у меня ничего нет» до первого опубликованного видео. Отмечай пройденное — прогресс сохраняется.</p>
+    <p class="lead">10 простых шагов, бесплатные инструменты для идей и сценариев, суфлёр для съёмки и честный разбор, как на этом зарабатывать.</p>
     <div class="cta">
       <a class="btn btn-main" href="#steps">Начать путь →</a>
-      <a class="btn btn-ghost" href="#ideas">Идеи для видео</a>
+      <a class="btn btn-ghost" href="#tools">🛠 Инструменты</a>
     </div>
     <div class="platforms">
-      <span>▶ YouTube Shorts</span><span>◎ Instagram Reels</span><span>♪ TikTok</span>
+      <span>▶ YouTube Shorts</span><span>◎ Instagram Reels</span><span>♪ TikTok</span><span>◆ VK Клипы</span>
     </div>
   </div>
 
@@ -435,16 +79,23 @@
   </div>
 </header>
 
+<div class="wrap">
+  <div class="stats">
+    <div class="stat reveal"><b class="gt">10</b><span>шагов от нуля до первого видео</span></div>
+    <div class="stat reveal"><b class="gt">6</b><span>бесплатных инструментов прямо здесь</span></div>
+    <div class="stat reveal"><b class="gt">6</b><span>способов зарабатывать на видео</span></div>
+    <div class="stat reveal"><b class="gt">0 ₽</b><span>чтобы начать — хватит телефона</span></div>
+  </div>
+</div>
+
 <main>
   <section class="block" id="steps">
     <div class="wrap narrow">
-      <p class="eyebrow reveal">Пошаговый план</p>
+      <p class="eyebrow reveal">Шаг за шагом</p>
       <h2 class="reveal">10 шагов до первого видео</h2>
-      <p class="sub reveal">Иди по порядку. Каждый шаг — максимум один вечер.</p>
-
+      <p class="sub reveal">Иди по порядку и отмечай пройденное. Каждый шаг — максимум один вечер.</p>
       <div class="timeline" id="timeline">
         <div class="rail-fill" id="rail"></div>
-
         <article class="step reveal" data-step="1">
           <div class="node"><span>01</span></div>
           <div class="card">
@@ -582,50 +233,181 @@
     </div>
   </section>
 
-  <section class="block" id="ideas">
-    <div class="wrap">
-      <p class="eyebrow reveal">Вдохновение</p>
-      <h2 class="reveal">Идеи для первых видео</h2>
-      <p class="sub reveal">Бери любой формат и подставляй свою тему.</p>
-      <div class="bento">
-        <div class="card reveal">
-          <span class="big-emo">⚠️</span>
-          <h4>«3 ошибки, которые…»</h4>
-          <p>Самый простой и рабочий формат. Быстрый список ошибок в твоей теме — людям нравится проверять себя.</p>
-          <div class="mini-feed" aria-hidden="true"><div data-v="▶ 24K"></div><div data-v="▶ 8.1K"></div><div data-v="▶ 51K"></div></div>
+  <!-- ===================== ИНСТРУМЕНТЫ ===================== -->
+  <section class="block" id="tools">
+    <div class="wrap narrow">
+      <p class="eyebrow reveal">Бесплатно и без регистрации</p>
+      <h2 class="reveal">Инструменты автора</h2>
+      <p class="sub reveal">Всё, что нужно новичку: придумать идею, написать крючок и сценарий, снять с суфлёром и проверить видео перед публикацией.</p>
+
+      <div class="tabs reveal" role="tablist">
+        <button class="tab" role="tab" aria-selected="true" data-tab="ideas">💡 Идеи</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="hooks">🪝 Крючки</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="script">✍️ Сценарий</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="prompt">🎥 Суфлёр</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="tags">#️⃣ Описание</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="check">✅ Проверка</button>
+      </div>
+
+      <div class="panel on card tool" id="p-ideas">
+        <h3>Генератор идей</h3>
+        <p class="hint">Напиши свою тему или выбери готовую — получишь 6 идей для видео. Жми «Ещё», пока не найдёшь свою.</p>
+        <div class="row">
+          <input class="input" id="ideaTopic" placeholder="Например: готовка, футбол, Minecraft, учёба…" maxlength="40">
+          <button class="sbtn" id="ideaGo">Придумать</button>
         </div>
-        <div class="card reveal"><span class="big-emo">✨</span><h4>«До / после»</h4><p>Показываешь результат: комната, рисунок, тренировка, блюдо.</p></div>
-        <div class="card reveal"><span class="big-emo">⚡</span><h4>«Лайфхак за 15 секунд»</h4><p>Одна хитрость, которую можно сразу повторить.</p></div>
-        <div class="card reveal"><span class="big-emo">🌅</span><h4>«Мой день»</h4><p>Как ты что-то делаешь — ускоренно и с подписями.</p></div>
-        <div class="card reveal"><span class="big-emo">🤯</span><h4>«Пробую впервые»</h4><p>Честная реакция на новое: еда, игра, навык.</p></div>
-        <div class="card reveal"><span class="big-emo">💬</span><h4>Ответ на коммент</h4><p>Появились вопросы — отвечай отдельным видео.</p></div>
+        <div class="chips" id="ideaChips"></div>
+        <div class="outlist" id="ideaOut"></div>
+      </div>
+
+      <div class="panel card tool" id="p-hooks">
+        <h3>Крючки для первых 3 секунд</h3>
+        <p class="hint">Первая фраза решает, досмотрят ли видео. Выбери тип, подставь тему — и копируй.</p>
+        <div class="row">
+          <input class="input" id="hookTopic" placeholder="О чём видео? Например: утренние тренировки" maxlength="50">
+        </div>
+        <div class="chips" id="hookTypes"></div>
+        <div class="outlist" id="hookOut"></div>
+      </div>
+
+      <div class="panel card tool" id="p-script">
+        <h3>Конструктор сценария</h3>
+        <p class="hint">Заполни три части — сайт посчитает длительность и соберёт готовый текст. Всё сохраняется автоматически.</p>
+        <div class="field"><label for="sHook">1 · Крючок (0–3 сек)</label><textarea class="input" id="sHook" placeholder="Ты 100% неправильно держишь телефон, когда снимаешь…"></textarea></div>
+        <div class="field"><label for="sBody">2 · Суть</label><textarea class="input" id="sBody" style="min-height:120px" placeholder="Вот как правильно: … Во-первых… Во-вторых…"></textarea></div>
+        <div class="field"><label for="sCta">3 · Призыв в конце</label><textarea class="input" id="sCta" placeholder="Подпишись — завтра покажу, как ставить свет без лампы."></textarea></div>
+        <div class="meter">
+          <span>Слов: <b id="sWords">0</b></span>
+          <span>Длительность: <b id="sSec">0 сек</b></span>
+          <span class="dur good" id="sVerdict">Начни писать</span>
+        </div>
+        <div class="row">
+          <button class="sbtn" id="sCopy">Скопировать сценарий</button>
+          <button class="sbtn ghost" id="sPrompt">🎥 Открыть в суфлёре</button>
+          <button class="sbtn ghost" id="sClear">Очистить</button>
+        </div>
+      </div>
+
+      <div class="panel card tool" id="p-prompt">
+        <h3>Суфлёр для съёмки</h3>
+        <p class="hint">Положи телефон или ноутбук рядом с камерой — текст будет плавно прокручиваться, и ты сможешь говорить, не запоминая. Пробел — пауза, Esc — выход.</p>
+        <div class="field"><label for="pText">Текст для чтения</label><textarea class="input" id="pText" style="min-height:160px" placeholder="Вставь сюда свой сценарий или собери его во вкладке «Сценарий»"></textarea></div>
+        <button class="sbtn" id="pStart">▶ Запустить суфлёр</button>
+      </div>
+
+      <div class="panel card tool" id="p-tags">
+        <h3>Название, описание и хэштеги</h3>
+        <p class="hint">Введи тему видео — получишь варианты названия, готовое описание и подборку хэштегов.</p>
+        <div class="row">
+          <input class="input" id="tagTopic" placeholder="Например: рецепт пасты за 10 минут" maxlength="60">
+          <button class="sbtn" id="tagGo">Сгенерировать</button>
+        </div>
+        <div class="outlist" id="tagOut" style="margin-top:20px"></div>
+      </div>
+
+      <div class="panel card tool" id="p-check">
+        <h3>Проверка перед публикацией</h3>
+        <p class="hint">Пройдись по списку перед тем, как нажать «Опубликовать». Отметки сохраняются.</p>
+        <div class="checklist" id="preList"></div>
+        <div class="ready" id="preReady">Отметь все пункты — и можно публиковать</div>
+        <div class="row" style="margin-top:14px"><button class="sbtn ghost" id="preReset">Сбросить для следующего видео</button></div>
       </div>
     </div>
   </section>
 
-  <section class="block">
+  <!-- ===================== ЗАРАБОТОК ===================== -->
+  <section class="block" id="money">
     <div class="wrap">
-      <p class="eyebrow reveal">Не делай так</p>
-      <h2 class="reveal">Частые ошибки новичков</h2>
-      <p class="sub reveal">Их совершают почти все — теперь ты знаешь заранее.</p>
+      <p class="eyebrow reveal">Деньги</p>
+      <h2 class="reveal">Как зарабатывать на коротких видео</h2>
+      <p class="sub reveal">Честно: реклама в самих Shorts платит мало. Основные деньги — от брендов и собственных продуктов. Вот все способы, от самых прибыльных к простым.</p>
+
+      <div class="money">
+        <div class="card reveal"><span class="big-emo">🤝</span><h4>Реклама от брендов</h4><p>Компании платят за упоминание продукта в видео. Главный источник дохода у большинства авторов коротких видео.</p><span class="lvl hot">💰 Самый прибыльный</span></div>
+        <div class="card reveal"><span class="big-emo">📢</span><h4>Свой Telegram-канал</h4><p>Переводи зрителей в Telegram: там продают рекламные посты, и аудитория остаётся твоей, даже если платформа поменяет правила.</p><span class="lvl hot">🔥 Обязательно</span></div>
+        <div class="card reveal"><span class="big-emo">🛍</span><h4>Свой продукт или услуга</h4><p>Гайд, курс, консультация, пресеты, монтаж на заказ. С 1000 преданных зрителей уже можно продавать.</p><span class="lvl hot">📈 Растёт с аудиторией</span></div>
+        <div class="card reveal"><span class="big-emo">🔗</span><h4>Партнёрские ссылки</h4><p>Рекомендуешь товар по своей ссылке — получаешь процент с каждой покупки. Подходит для обзоров техники, косметики, книг.</p><span class="lvl">С любого размера</span></div>
+        <div class="card reveal"><span class="big-emo">❤️</span><h4>Донаты и подписки</h4><p>Boosty, донаты на стримах, платные подписки. Зрители поддерживают автора за эксклюзив и общение.</p><span class="lvl">Для лояльной аудитории</span></div>
+        <div class="card reveal"><span class="big-emo">▶️</span><h4>Монетизация платформ</h4><p>Доля от рекламы в YouTube Shorts, программы VK Клипов и других площадок. Приятный бонус, но не основной доход.</p><span class="lvl">Пассивно, но мало</span></div>
+      </div>
+
+      <div class="ru reveal"><div><b>Если ты в России:</b> часть функций YouTube, Instagram и TikTok там ограничена — в том числе выплаты за рекламу на YouTube. Поэтому у российских авторов основной доход — интеграции, Telegram и собственные продукты, а из площадок с монетизацией популярны VK Клипы и Дзен. Правила часто меняются — проверяй актуальные условия перед стартом.</div></div>
+
+      <h3 class="reveal" style="font-family:Unbounded,sans-serif;font-size:24px;margin:56px 0 0">Лестница дохода</h3>
+      <div class="ladder">
+        <div class="rung reveal"><small>0 – 1K</small><b>Старт</b><p>Учишься, ищешь формат. Денег почти нет — и это нормально. Главное — регулярность.</p></div>
+        <div class="rung reveal"><small>1K – 10K</small><b>Первые деньги</b><p>Партнёрские ссылки, первые небольшие интеграции, заказы на монтаж или услуги.</p></div>
+        <div class="rung reveal"><small>10K – 50K</small><b>Стабильность</b><p>Регулярные интеграции, свой Telegram с рекламой, первый собственный продукт.</p></div>
+        <div class="rung reveal"><small>50K – 300K</small><b>Работа</b><p>Доход как зарплата и выше. Бренды и агентства сами пишут с предложениями.</p></div>
+        <div class="rung reveal"><small>300K +</small><b>Бизнес</b><p>Свой бренд, команда, монтажёр, менеджер по рекламе.</p></div>
+      </div>
+
+      <div class="card calc reveal">
+        <div>
+          <h3 style="font-family:Unbounded,sans-serif;font-size:22px;margin:0 0 6px">Калькулятор дохода</h3>
+          <p style="color:var(--muted);margin:0 0 26px">Двигай ползунки — посмотри, сколько можно зарабатывать при разной аудитории.</p>
+          <div class="slider"><div class="top"><label for="cViews">Средние просмотры на видео</label><output id="oViews"></output></div><input class="rng" type="range" id="cViews" min="0" max="100" value="40"></div>
+          <div class="slider"><div class="top"><label for="cVids">Видео в месяц</label><output id="oVids"></output></div><input class="rng" type="range" id="cVids" min="4" max="60" step="1" value="12"></div>
+          <div class="slider"><div class="top"><label for="cDeals">Рекламных интеграций в месяц</label><output id="oDeals"></output></div><input class="rng" type="range" id="cDeals" min="0" max="8" step="1" value="1"></div>
+        </div>
+        <div class="res">
+          <div class="ritem"><span>Просмотров в месяц</span><b id="rViews"></b></div>
+          <div class="ritem"><span>Реклама платформы</span><b id="rAds"></b></div>
+          <div class="ritem"><span>Интеграции брендов</span><b id="rDeals"></b></div>
+          <div class="ritem total"><span>Примерно в месяц</span><b id="rTotal"></b></div>
+          <p class="note">⚠️ Это грубый ориентир, а не обещание. В расчёте: реклама платформы ≈ 1–5 ₽ за 1000 просмотров Shorts, одна интеграция ≈ 0,3–1,5 ₽ за каждый средний просмотр видео. Реальные цифры сильно зависят от темы, страны зрителей и платформы.</p>
+        </div>
+      </div>
+
+      <h3 class="reveal" style="font-family:Unbounded,sans-serif;font-size:24px;margin:56px 0 18px">Как зарабатывать больше</h3>
       <div class="mist">
-        <div class="card reveal"><span class="x">✕</span><h4>Долгое вступление</h4><p>«Привет, сегодня я расскажу…» — зритель уже ушёл. Начинай с главного.</p></div>
-        <div class="card reveal"><span class="x">✕</span><h4>Ждать идеала</h4><p>Первые видео всё равно будут не очень. Выкладывай и учись по ходу.</p></div>
-        <div class="card reveal"><span class="x">✕</span><h4>Бросить через неделю</h4><p>Результат обычно приходит через 1–3 месяца регулярной работы.</p></div>
-        <div class="card reveal"><span class="x">✕</span><h4>Чужая музыка</h4><p>Треки не из библиотеки платформы могут заблокировать видео.</p></div>
+        <div class="card reveal"><span class="x good">1</span><h4>Выбери «денежную» тему</h4><p>Финансы, техника, бизнес, образование, красота — рекламодатели там платят в разы больше, чем в юморе.</p></div>
+        <div class="card reveal"><span class="x good">2</span><h4>Собери медиакит</h4><p>Одна страница: о чём канал, цифры, аудитория, цена. С ним бренды воспринимают тебя серьёзно.</p></div>
+        <div class="card reveal"><span class="x good">3</span><h4>Пиши брендам сам</h4><p>Не жди предложений. Напиши 10 компаниям в твоей теме — хотя бы одна ответит.</p></div>
+        <div class="card reveal"><span class="x good">4</span><h4>Не завись от одной площадки</h4><p>Одно видео — на 3–4 платформы. Плюс Telegram, куда ведут все дороги.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="block">
+  <!-- ===================== ЧЕЛЛЕНДЖ ===================== -->
+  <section class="block" id="challenge">
+    <div class="wrap narrow">
+      <p class="eyebrow reveal">Привычка важнее таланта</p>
+      <h2 class="reveal">Челлендж: 30 видео</h2>
+      <p class="sub reveal">Выложи 30 видео — и ты обгонишь почти всех, кто только «собирается начать». Отмечай каждое опубликованное видео.</p>
+      <div class="card challenge reveal">
+        <div class="ch-head">
+          <div><b id="chCount">0</b><b style="color:var(--dim)"> / 30</b></div>
+          <span id="chMsg">Нажми на первую клетку, когда выложишь первое видео</span>
+        </div>
+        <div class="days" id="days"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== СЛОВАРЬ ===================== -->
+  <section class="block" id="glossary">
+    <div class="wrap">
+      <p class="eyebrow reveal">Словарь блогера</p>
+      <h2 class="reveal">Непонятные слова — простыми словами</h2>
+      <div class="row reveal" style="max-width:480px;margin-top:24px"><input class="input" id="gSearch" placeholder="🔍 Найти слово…"></div>
+      <div class="gloss" id="gloss"></div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section class="block" id="faq">
     <div class="wrap narrow">
       <p class="eyebrow reveal">FAQ</p>
       <h2 class="reveal">Частые вопросы</h2>
       <p class="sub reveal">Коротко о том, что волнует всех на старте.</p>
       <div class="faq">
         <details class="reveal"><summary>Нужно ли показывать лицо?</summary><p>Нет. Можно снимать руки, экран, процесс или делать видео с текстом и голосом. Но с лицом обычно проще вызвать доверие и набрать подписчиков.</p></details>
-        <details class="reveal"><summary>Когда начнут платить деньги?</summary><p>На YouTube для монетизации Shorts нужно 1000 подписчиков и 10 миллионов просмотров Shorts за 90 дней (точные условия смотри в YouTube Studio — они иногда меняются). Многие начинают зарабатывать раньше — на рекламе от брендов, когда появляется аудитория.</p></details>
+        <details class="reveal"><summary>Когда начнут платить деньги?</summary><p>На YouTube для монетизации Shorts нужно 1000 подписчиков и 10 миллионов просмотров Shorts за 90 дней (точные условия смотри в YouTube Studio — они меняются). Но большинство авторов начинают зарабатывать раньше — на интеграциях, партнёрских ссылках и своих услугах. Подробнее — в разделе «Заработок».</p></details>
+        <details class="reveal"><summary>Сколько видео выкладывать?</summary><p>Для старта — 3 в неделю. Это реально выдержать и достаточно, чтобы платформа поняла, кому тебя показывать. Регулярность важнее количества.</p></details>
         <details class="reveal"><summary>В какое время лучше выкладывать?</summary><p>Для начала — вечером, когда люди отдыхают (18:00–21:00). Потом смотри в статистике, когда твои зрители онлайн.</p></details>
+        <details class="reveal"><summary>Видео набрало 0–100 просмотров. Что не так?</summary><p>Скорее всего, ничего — первые видео почти у всех набирают мало. Проверь крючок (первые 3 секунды), длину (короче — лучше) и продолжай. Обычно рост начинается после 20–30 роликов.</p></details>
+        <details class="reveal"><summary>Можно ли брать чужие видео?</summary><p>Нет — за это блокируют. Можно вдохновляться форматом и идеей, но снимать своё. Музыку бери из библиотеки платформы.</p></details>
         <details class="reveal"><summary>Мне стыдно, что знакомые увидят</summary><p>Это чувствуют почти все. Знакомые посмотрят первые пару видео и забудут — а ты продолжишь расти. Можно начать с канала без лица.</p></details>
       </div>
     </div>
@@ -651,61 +433,25 @@
 </main>
 
 <footer>
-  <div class="wrap">Сделано как первый проект на GitHub Pages · <button class="reset" type="button" id="reset">Сбросить прогресс</button></div>
+  <div class="wrap">Shorts с нуля · бесплатный гайд для начинающих авторов · <button class="reset" type="button" id="reset">Сбросить весь прогресс</button></div>
 </footer>
 
-<script>
-  const KEY = 'shorts-guide-done';
-  const steps = [...document.querySelectorAll('.step')];
-  let done = [];
-  try { done = JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) {}
+<div class="prompter" id="prompter" role="dialog" aria-label="Суфлёр">
+  <div class="pbar">
+    <button class="sbtn" id="pPlay">⏸ Пауза</button>
+    <button class="sbtn ghost" id="pRestart">⟲ Сначала</button>
+    <label>Скорость <input type="range" id="pSpeed" min="10" max="120" value="40"></label>
+    <label>Размер <input type="range" id="pSize" min="24" max="80" value="44"></label>
+    <label><input type="checkbox" id="pMirror"> Зеркало</label>
+    <span class="sp"></span>
+    <button class="sbtn ghost" id="pClose">✕ Закрыть</button>
+  </div>
+  <div class="pview" id="pview"><div class="pline"></div><div class="ptext" id="ptext"></div></div>
+</div>
 
-  function render() {
-    steps.forEach(s => s.classList.toggle('done', done.includes(s.dataset.step)));
-    const n = done.length, total = steps.length, p = Math.round(n / total * 100);
-    document.getElementById('count').textContent = n + '/' + total;
-    document.getElementById('nbar').style.width = p + '%';
-    document.getElementById('pct').textContent = p + '%';
-    document.getElementById('ringc').style.strokeDashoffset = 326.7 * (1 - n / total);
-    const t = document.getElementById('ftitle'), x = document.getElementById('ftext');
-    if (n === total) { t.textContent = 'Ты прошёл весь путь! 🎉'; x.textContent = 'Теперь главное — не останавливаться. Следующее видео уже ждёт.'; }
-    else if (n >= 5) { t.textContent = 'Больше половины позади 🔥'; x.textContent = 'Осталось ' + (total - n) + ' — ты почти у цели.'; }
-    else if (n > 0) { t.textContent = 'Отличное начало 💪'; x.textContent = 'Пройдено ' + n + ' из ' + total + '. Продолжай в том же духе.'; }
-    else { t.textContent = 'Твой путь только начинается'; x.textContent = 'Отмечай шаги выше — и следи, как заполняется круг.'; }
-  }
-  function save() { try { localStorage.setItem(KEY, JSON.stringify(done)); } catch (e) {} }
+<button class="totop" id="totop" aria-label="Наверх">↑</button>
+<div class="toast" id="toast" role="status"></div>
 
-  steps.forEach(s => s.querySelector('.check').addEventListener('click', () => {
-    const id = s.dataset.step;
-    done = done.includes(id) ? done.filter(v => v !== id) : [...done, id];
-    save(); render();
-  }));
-  document.getElementById('reset').addEventListener('click', () => { done = []; save(); render(); });
-  render();
-
-  // появление при прокрутке
-  const io = new IntersectionObserver(es => es.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-  }), { threshold: .12, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-  // светящаяся линия таймлайна заполняется при прокрутке
-  const tl = document.getElementById('timeline'), rail = document.getElementById('rail');
-  function fillRail() {
-    const r = tl.getBoundingClientRect(), mid = innerHeight * .55;
-    const h = Math.max(0, Math.min(r.height - 40, mid - r.top - 20));
-    rail.style.height = h + 'px';
-  }
-  addEventListener('scroll', fillRail, { passive: true });
-  addEventListener('resize', fillRail);
-  fillRail();
-
-  // подсветка рамки карточки за курсором
-  document.querySelectorAll('.card').forEach(c => c.addEventListener('pointermove', e => {
-    const r = c.getBoundingClientRect();
-    c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-    c.style.setProperty('--my', (e.clientY - r.top) + 'px');
-  }));
-</script>
+<script src="app.js"></script>
 </body>
 </html>
