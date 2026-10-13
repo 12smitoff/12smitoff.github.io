@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Как начать Shorts и Reels</title>
+<meta name="description" content="Пошаговый гайд для новичков: как начать снимать короткие вертикальные видео для YouTube Shorts, Instagram Reels и TikTok.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --surface: #ffffff;
+    --text: #1b1a17;
+    --muted: #6b675f;
+    --line: #e7e3da;
+    --accent: #e8452c;
+    --accent-soft: #fde9e4;
+    --ok: #1f8a4c;
+    --ok-soft: #e3f4ea;
+    --shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 16px rgba(0,0,0,.04);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #141312;
+      --surface: #1d1c1a;
+      --text: #f1eee8;
+      --muted: #a29d93;
+      --line: #2f2d29;
+      --accent: #ff6a4f;
+      --accent-soft: #3a1f19;
+      --ok: #4cc27f;
+      --ok-soft: #17301f;
+      --shadow: none;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Manrope, system-ui, -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+  a { color: var(--accent); }
+
+  header.hero { padding: 64px 0 40px; }
+  .tag {
+    display: inline-block;
+    font-size: 13px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+    color: var(--accent); background: var(--accent-soft);
+    padding: 4px 10px; border-radius: 999px;
+  }
+  h1 { font-size: clamp(32px, 6vw, 48px); line-height: 1.1; margin: 16px 0 16px; font-weight: 800; letter-spacing: -.02em; }
+  .lead { font-size: 19px; color: var(--muted); margin: 0 0 28px; max-width: 600px; }
+
+  .progress {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+    padding: 10px 0;
+  }
+  .progress .wrap { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--muted); }
+  .bar { flex: 1; height: 8px; background: var(--line); border-radius: 999px; overflow: hidden; }
+  .bar > span { display: block; height: 100%; width: 0; background: var(--ok); border-radius: 999px; transition: width .3s; }
+  .progress b { color: var(--text); font-variant-numeric: tabular-nums; }
+
+  .platforms { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 0 0 8px; }
+  .platforms div {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+    padding: 12px; font-size: 14px; color: var(--muted); box-shadow: var(--shadow);
+  }
+  .platforms strong { display: block; color: var(--text); font-size: 15px; }
+
+  main { padding: 24px 0 40px; }
+  h2 { font-size: 26px; margin: 48px 0 16px; letter-spacing: -.01em; }
+
+  .step {
+    position: relative;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 16px;
+    padding: 22px 22px 20px 76px; margin: 0 0 14px; box-shadow: var(--shadow);
+    transition: border-color .2s, background .2s;
+  }
+  .step.done { border-color: var(--ok); background: var(--ok-soft); }
+  .num {
+    position: absolute; left: 20px; top: 20px;
+    width: 40px; height: 40px; border-radius: 50%;
+    display: grid; place-items: center;
+    font-weight: 800; color: var(--accent); background: var(--accent-soft);
+  }
+  .step.done .num { color: #fff; background: var(--ok); }
+  .step h3 { margin: 6px 0 8px; font-size: 20px; }
+  .step p { margin: 0 0 10px; }
+  .step ul { margin: 0 0 12px; padding-left: 20px; }
+  .step li { margin: 4px 0; }
+  .tip {
+    font-size: 15px; color: var(--muted);
+    border-left: 3px solid var(--accent); padding: 2px 0 2px 12px; margin: 12px 0;
+  }
+  .check {
+    display: inline-flex; align-items: center; gap: 8px;
+    font: inherit; font-size: 15px; font-weight: 700;
+    color: var(--text); background: transparent;
+    border: 1px solid var(--line); border-radius: 999px;
+    padding: 6px 14px; cursor: pointer; margin-top: 4px;
+  }
+  .check:hover { border-color: var(--ok); }
+  .step.done .check { border-color: var(--ok); color: var(--ok); }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 16px;
+    padding: 18px 20px; box-shadow: var(--shadow);
+  }
+  .card h4 { margin: 0 0 6px; font-size: 17px; }
+  .card p { margin: 0; font-size: 15px; color: var(--muted); }
+
+  .script {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
+  }
+  .script div { display: grid; grid-template-columns: 110px 1fr; border-top: 1px solid var(--line); }
+  .script div:first-child { border-top: 0; }
+  .script span { padding: 12px 16px; font-size: 15px; }
+  .script span:first-child { font-weight: 700; color: var(--accent); background: var(--accent-soft); }
+
+  details {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+    padding: 14px 18px; margin: 0 0 10px;
+  }
+  summary { font-weight: 700; cursor: pointer; }
+  details p { margin: 10px 0 0; color: var(--muted); }
+
+  footer { border-top: 1px solid var(--line); padding: 28px 0 48px; color: var(--muted); font-size: 14px; }
+  .reset { font: inherit; color: var(--muted); background: none; border: 0; text-decoration: underline; cursor: pointer; padding: 0; }
+
+  @media (max-width: 600px) {
+    header.hero { padding: 40px 0 28px; }
+    .platforms { grid-template-columns: 1fr; }
+    .grid2 { grid-template-columns: 1fr; }
+    .step { padding: 70px 18px 18px; }
+    .num { left: 18px; top: 18px; }
+    .script div { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="tag">Гайд для новичков</span>
+    <h1>Как начать снимать Shorts и Reels с нуля</h1>
+    <p class="lead">10 шагов от «у меня ничего нет» до первого опубликованного видео. Отмечай пройденные шаги — прогресс сохранится.</p>
+    <div class="platforms">
+      <div><strong>YouTube Shorts</strong>вертикальные видео на YouTube</div>
+      <div><strong>Instagram Reels</strong>короткие видео в Instagram</div>
+      <div><strong>TikTok</strong>одно видео можно выложить везде</div>
+    </div>
+  </div>
+</header>
+
+<div class="progress">
+  <div class="wrap">
+    <span>Прогресс</span>
+    <div class="bar"><span id="bar"></span></div>
+    <b id="count">0 / 10</b>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <h2>Пошаговый план</h2>
+
+  <section class="step" data-step="1">
+    <div class="num">1</div>
+    <h3>Выбери тему</h3>
+    <p>Тема — это то, о чём будет твой канал. Лучше всего то, что тебе самому интересно: так не надоест через неделю.</p>
+    <ul>
+      <li>Запиши 5 вещей, которыми увлекаешься или в которых разбираешься.</li>
+      <li>Для каждой придумай 10 идей видео. Где идеи пошли легко — там и тема.</li>
+      <li>Посмотри, кто уже снимает про это, и что у них набирает больше всего просмотров.</li>
+    </ul>
+    <p class="tip">Не нужно быть экспертом. Формат «учусь сам и показываю, что получается» отлично работает.</p>
+    <button class="check" type="button">☐ Готово</button>
+  </section>
+
+  <section class="step" data-step="2">
+    <div class="num">2</div>
+    <h3>Создай аккаунты</h3>
+    <p>Заведи канал на YouTube и аккаунт в Instagram (и TikTok, если хочешь). Используй одно и то же имя везде.</p>
+    <ul>
+      <li>Имя — короткое, легко произнести и запомнить.</li>
+      <li>Аватарка — твоё лицо или простой яркий логотип.</li>
+      <li>Описание в одну строку: о чём канал и почему стоит подписаться.</li>
+    </ul>
+    <button class="check" type="button">☐ Готово</button>
+  </section>
+
+  <section class="step" data-step="3">
+    <div class="num">3</div>
+    <h3>Подготовь «оборудование»</h3>
+    <p>Для старта хватит того, что уже есть:</p>
+    <ul>
+      <li><b>Телефон</b> — снимай на основную (заднюю) камеру, она лучше фронтальной.</li>
+      <li><b>Свет</b> — встань лицом к окну днём. Это бесплатно и выглядит хорошо.</li>
+      <li><b>Звук</b> — снимай в тихой комнате, ближе к телефону. Петличка за 500–1000 ₽ — первое, что стоит купить потом.</li>
+      <li><b>Опора</b> — штатив или просто стопка книг, чтобы картинка не тряслась.</li>
+    </ul>
+    <p class="tip">Плохой звук раздражает зрителей сильнее, чем плохая картинка.</p>
+    <button class="check" type="button">☐ Готово</button>
+  </section>
+
+  <section class="step" data-step="4">
+    <div class="num">4</div>
+    <h3>Пойми формат</h3>
+    <ul>
+      <li><b>Вертикально</b>, 9:16 — держи телефон стоя.</li>
+      <li><b>Коротко</b> — платформы разрешают до 3 минут, но новичку лучше 15–45 секунд.</li>
+      <li><b>Одна мысль на видео</b> — один совет, одна история, один лайфхак.</li>
+      <li><b>Без пауз</b> — вырезай все «эээ» и паузы между фразами.</li>
+    </ul>
+    <button class="check" type="button">☐ Готово</button>
+  </section>
+
+  <section class="step" data-step="5">
+    <div class="num">5</div>
+    <h3>Напиши сценарий</h3>
+    <p>Даже для 30 секунд. Простая схема, которая работает почти всегда:</p>
+    <div class="script">
+      <div><span>0–3 сек</span><span><b>Крючок.</b> Фраза, из-за которой не хочется листать дальше: «Ты 100% делаешь эту ошибку…»</span></div>
+      <div><span>3–25 сек</span><span><b>Суть.</b> Сам совет, история или показ — быстро и по делу.</span></div>
+      <div><span>Конец</span><span><b>Призыв.</b> «Подпишись, завтра покажу вторую часть» или вопрос в комментарии.</span></div>
+    </div>
+    <p class="tip" style="margin-top:14px">Первые 3 секунды решают всё. Если крючок слабый — видео пролистают, каким бы хорошим оно ни было.</p>
+    <button class="check" type="button">☐ Готово</button>
+  </section>
+
+  <section class="step" data-step="6">
+    <div class="num">6</div>
+    <h3>Сними видео</h3>
+    <ul>
+      <li>Сними каждую фразу по 2–3 раза — потом выберешь лучший дубль.</li>
+      <li>Начинай говорить сразу, без «Всем привет, меня зовут…».</li>
+      <li>Говори чуть энергичнее, чем в жизни — на видео это выглядит нормально.</li>
+      <li>Меняй кадр каждые 2–4 секунды: другой ракурс, приближение, показ предмета.</li>
+    </ul>
+    <button class="check" type="button">☐ Готово</button>
+  </section>
+
+  <section class="step" data-step="7">
+    <div class="num">7</div>
+    <h3>Смонтируй</h3>
+    <p>Бесплатные приложения на телефон: <b>CapCut</b>, <b>InShot</b> или встроенный редактор YouTube/Instagram.</p>
+    <ul>
+      <li>Вырежи паузы и неудачные куски.</li>
+      <li>Добавь <b>субтитры</b> — многие смотрят без звука. В CapCut они делаются автоматически.</li>
+      <li>Тихая фоновая музыка — только из библиотеки самой платформы, чтобы не было проблем с авторскими правами.</li>
+    </ul>
+    <button class="check" type="button">☐ Готово</button>
+  </section>
+
+  <section class="step" data-step="8">
+    <div class="num">8</div>
+    <h3>Опубликуй</h3>
+    <ul>
+      <li><b>Название</b> — короткое и интригующее, как крючок.</li>
+      <li><b>Описание</b> — 1–2 предложения и 3–5 хэштегов по теме.</li>
+      <li><b>Обложка</b> — выбери кадр, где хорошо видно лицо или суть.</li>
+      <li>Выложи одно и то же видео на все платформы (без водяного знака TikTok — его не любят Instagram и YouTube).</li>
+    </ul>
+    <button class="check" type="button">☐ Готово</button>
+  </section>
+
+  <section class="step" data-step="9">
+    <div class="num">9</div>
+    <h3>Выкладывай регулярно</h3>
+    <p>Главный секрет — не идеальное видео, а <b>много видео</b>. Первые 20–30 роликов почти у всех набирают мало просмотров, это нормально.</p>
+    <ul>
+      <li>Начни с 3 видео в неделю — столько реально выдержать.</li>
+      <li>Снимай сразу несколько роликов за один раз, а выкладывай по расписанию.</li>
+      <li>Отвечай на комментарии — это помогает продвижению.</li>
+    </ul>
+    <button class="check" type="button">☐ Готово</button>
+  </section>
+
+  <section class="step" data-step="10">
+    <div class="num">10</div>
+    <h3>Смотри статистику и улучшай</h3>
+    <p>Раз в неделю открывай аналитику и смотри на два числа:</p>
+    <ul>
+      <li><b>Сколько людей досмотрели</b> — если уходят в первые секунды, улучшай крючок.</li>
+      <li><b>Какие видео зашли лучше всего</b> — делай больше похожих.</li>
+    </ul>
+    <p class="tip">Повторять удачный формат — не стыдно. Так делают все крупные авторы.</p>
+    <button class="check" type="button">☐ Готово</button>
+  </section>
+
+  <h2>Идеи для первых видео</h2>
+  <div class="grid2">
+    <div class="card"><h4>«3 ошибки, которые…»</h4><p>Быстрый список ошибок в твоей теме. Людям нравится проверять себя.</p></div>
+    <div class="card"><h4>«До / после»</h4><p>Показываешь результат: комната, рисунок, тренировка, блюдо.</p></div>
+    <div class="card"><h4>«Лайфхак за 15 секунд»</h4><p>Одна полезная хитрость, которую можно сразу повторить.</p></div>
+    <div class="card"><h4>«Мой день / процесс»</h4><p>Как ты что-то делаешь, ускоренно и с подписями.</p></div>
+    <div class="card"><h4>«Пробую впервые»</h4><p>Честная реакция на новое: еда, игра, приложение, навык.</p></div>
+    <div class="card"><h4>Ответ на комментарий</h4><p>Когда появятся вопросы — отвечай на них отдельным видео.</p></div>
+  </div>
+
+  <h2>Частые ошибки новичков</h2>
+  <div class="grid2">
+    <div class="card"><h4>Долгое вступление</h4><p>«Привет, сегодня я расскажу…» — зритель уже ушёл. Начинай с главного.</p></div>
+    <div class="card"><h4>Ждать идеала</h4><p>Первые видео всё равно будут не очень. Выкладывай и учись по ходу.</p></div>
+    <div class="card"><h4>Бросить через неделю</h4><p>Результат обычно приходит через 1–3 месяца регулярной работы.</p></div>
+    <div class="card"><h4>Чужая музыка</h4><p>Популярные треки не из библиотеки платформы могут заблокировать видео.</p></div>
+  </div>
+
+  <h2>Вопросы</h2>
+  <details>
+    <summary>Нужно ли показывать лицо?</summary>
+    <p>Нет. Можно снимать руки, экран, процесс или делать видео с текстом и голосом. Но с лицом обычно проще набрать доверие и подписчиков.</p>
+  </details>
+  <details>
+    <summary>Когда начнут платить деньги?</summary>
+    <p>На YouTube для монетизации Shorts нужно 1000 подписчиков и 10 миллионов просмотров Shorts за 90 дней (точные условия смотри в YouTube Studio — они иногда меняются). Но многие начинают зарабатывать раньше — на рекламе от брендов, когда канал набирает аудиторию.</p>
+  </details>
+  <details>
+    <summary>В какое время лучше выкладывать?</summary>
+    <p>Для начала — вечером, когда люди отдыхают (18:00–21:00). Потом смотри в статистике, когда твои зрители онлайн.</p>
+  </details>
+  <details>
+    <summary>Мне стыдно, что знакомые увидят</summary>
+    <p>Это чувствуют почти все. Знакомые смотрят первые пару видео и забывают — а ты продолжаешь расти. Можно начать с канала без лица.</p>
+  </details>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    Сделано как первый проект на GitHub Pages. · <button class="reset" type="button" id="reset">Сбросить прогресс</button>
+  </div>
+</footer>
+
+<script>
+  const KEY = 'shorts-guide-done';
+  const steps = [...document.querySelectorAll('.step')];
+  let done = [];
+  try { done = JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) {}
+
+  function render() {
+    steps.forEach(s => {
+      const on = done.includes(s.dataset.step);
+      s.classList.toggle('done', on);
+      s.querySelector('.check').textContent = on ? '✓ Сделано' : '☐ Готово';
+    });
+    document.getElementById('count').textContent = done.length + ' / ' + steps.length;
+    document.getElementById('bar').style.width = (done.length / steps.length * 100) + '%';
+  }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(done)); } catch (e) {} }
+
+  steps.forEach(s => s.querySelector('.check').addEventListener('click', () => {
+    const id = s.dataset.step;
+    done = done.includes(id) ? done.filter(x => x !== id) : [...done, id];
+    save(); render();
+  }));
+  document.getElementById('reset').addEventListener('click', () => { done = []; save(); render(); });
+  render();
+</script>
+</body>
+</html>
